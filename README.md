@@ -621,13 +621,7 @@
         <div class="teacher-container">
 
 
-            <div class="photo-container">
-
-                <img
-                    src="teacher.jpg"
-                    alt="Miss Sehrish"
-                    class="teacher-photo"
-                >
+            <div class="photo-container"
 
                 <div class="teacher-name">
                     Miss Sehrish
