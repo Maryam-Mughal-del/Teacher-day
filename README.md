@@ -1,1 +1,509 @@
-# Teacher-day
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Happy Teacher's Day</title>
+
+    <style>
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: "Segoe UI", Arial, sans-serif;
+            background: linear-gradient(135deg, #ffe6f0, #e8f4ff);
+            color: #333;
+            text-align: center;
+            overflow-x: hidden;
+        }
+
+        /* Falling hearts */
+
+        .heart {
+            position: fixed;
+            top: -20px;
+            font-size: 25px;
+            animation: fall linear infinite;
+            z-index: 1;
+        }
+
+        .heart:nth-child(1) {
+            left: 10%;
+            animation-duration: 7s;
+        }
+
+        .heart:nth-child(2) {
+            left: 25%;
+            animation-duration: 9s;
+        }
+
+        .heart:nth-child(3) {
+            left: 45%;
+            animation-duration: 6s;
+        }
+
+        .heart:nth-child(4) {
+            left: 65%;
+            animation-duration: 8s;
+        }
+
+        .heart:nth-child(5) {
+            left: 85%;
+            animation-duration: 10s;
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-20px) rotate(0deg);
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(100vh) rotate(360deg);
+                opacity: 0;
+            }
+        }
+
+        /* Header */
+
+        header {
+            min-height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+            position: relative;
+        }
+
+        header h1 {
+            font-size: 55px;
+            color: #d63384;
+            margin: 10px;
+            animation: glow 2s infinite alternate;
+        }
+
+        header h2 {
+            font-size: 32px;
+            color: #555;
+        }
+
+        header p {
+            font-size: 20px;
+            max-width: 650px;
+            line-height: 1.7;
+        }
+
+        @keyframes glow {
+            from {
+                text-shadow: 0 0 5px #ffb6d5;
+            }
+
+            to {
+                text-shadow: 0 0 25px #ff69a5;
+            }
+        }
+
+        /* Flowers */
+
+        .flowers {
+            font-size: 45px;
+            margin: 20px;
+            animation: flowerMove 3s ease-in-out infinite;
+        }
+
+        @keyframes flowerMove {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-15px);
+            }
+        }
+
+        /* Main card */
+
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            width: 90%;
+            max-width: 850px;
+            margin: 40px auto;
+            padding: 40px;
+            border-radius: 30px;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
+            position: relative;
+            z-index: 2;
+        }
+
+        .card h2 {
+            color: #d63384;
+            font-size: 35px;
+        }
+
+        /* Teacher photo */
+
+        .teacher-photo {
+            width: 220px;
+            height: 220px;
+            object-fit: cover;
+            border-radius: 50%;
+            border: 8px solid white;
+            box-shadow: 0 0 25px rgba(214, 51, 132, 0.4);
+            animation: photoFloat 3s ease-in-out infinite;
+        }
+
+        @keyframes photoFloat {
+            0%, 100% {
+                transform: translateY(0);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+        }
+
+        .teacher-name {
+            font-size: 35px;
+            color: #4a69bd;
+            margin-top: 20px;
+        }
+
+        /* Message */
+
+        .message {
+            font-size: 19px;
+            line-height: 1.9;
+            max-width: 700px;
+            margin: 20px auto;
+        }
+
+        .highlight {
+            color: #d63384;
+            font-weight: bold;
+        }
+
+        /* Button */
+
+        button {
+            background: linear-gradient(45deg, #d63384, #ff6b9d);
+            color: white;
+            border: none;
+            padding: 16px 30px;
+            border-radius: 30px;
+            font-size: 18px;
+            cursor: pointer;
+            margin-top: 20px;
+            box-shadow: 0 8px 20px rgba(214, 51, 132, 0.3);
+            transition: 0.3s;
+        }
+
+        button:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 25px rgba(214, 51, 132, 0.4);
+        }
+
+        /* Surprise message */
+
+        #surprise {
+            display: none;
+            margin-top: 30px;
+            padding: 25px;
+            background: #fff0f6;
+            border-radius: 20px;
+            color: #d63384;
+            font-size: 22px;
+            animation: appear 1s ease;
+        }
+
+        @keyframes appear {
+            from {
+                opacity: 0;
+                transform: scale(0.5);
+            }
+
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        /* Appreciation section */
+
+        .appreciation {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            flex-wrap: wrap;
+            margin-top: 35px;
+        }
+
+        .box {
+            width: 200px;
+            padding: 25px;
+            background: #f8f0ff;
+            border-radius: 20px;
+            transition: 0.3s;
+        }
+
+        .box:hover {
+            transform: translateY(-10px);
+        }
+
+        .box h3 {
+            color: #6f42c1;
+        }
+
+        .box p {
+            line-height: 1.5;
+        }
+
+        /* Footer */
+
+        footer {
+            margin-top: 60px;
+            background: #d63384;
+            color: white;
+            padding: 30px;
+            font-size: 17px;
+        }
+
+        /* Mobile */
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 38px;
+            }
+
+            header h2 {
+                font-size: 25px;
+            }
+
+            .card {
+                padding: 25px 15px;
+            }
+
+            .teacher-photo {
+                width: 180px;
+                height: 180px;
+            }
+
+            .teacher-name {
+                font-size: 28px;
+            }
+
+        }
+
+    </style>
+</head>
+
+
+<body>
+
+
+    <!-- Falling Hearts -->
+
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+    <div class="heart">💗</div>
+    <div class="heart">💖</div>
+    <div class="heart">💕</div>
+
+
+    <!-- Welcome Section -->
+
+    <header>
+
+        <div class="flowers">
+            🌸 🌷 🌹 🌼 🌺
+        </div>
+
+        <h1>Happy Teacher's Day!</h1>
+
+        <h2>To My Wonderful Teacher</h2>
+
+        <p>
+            Today is a special day to say thank you
+            to someone who teaches, inspires,
+            encourages, and believes in us.
+        </p>
+
+        <div class="flowers">
+            🌷 🌸 🌼 🌹 🌺
+        </div>
+
+    </header>
+
+
+    <!-- Teacher Section -->
+
+    <section class="card">
+
+       <img src="teacher.jpg" alt="My Teacher" class="teacher-photo">
+
+<style>
+.teacher-photo {
+    width: 220px;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+</style>
+
+        <h2>🌸 My Amazing Teacher 🌸</h2>
+
+        <!-- CHANGE YOUR TEACHER'S NAME HERE -->
+
+        <div class="teacher-name">
+            Miss Sehrish
+        </div>
+
+        <p class="message">
+
+            Dear <span class="highlight">Miss Sehrish</span>,
+
+            thank you for being more than just a teacher.
+
+            Your kindness, patience, and guidance
+            make learning something special.
+
+            Every lesson you teach gives us
+            something valuable to carry into the future.
+
+        </p>
+
+
+        <p class="message">
+
+            A great teacher doesn't just teach lessons.
+            A great teacher inspires students
+            to believe in themselves.
+
+            <br><br>
+
+            <span class="highlight">
+                Thank you for inspiring me every day! ❤️
+            </span>
+
+        </p>
+
+
+        <!-- Surprise Button -->
+
+        <button onclick="showSurprise()">
+            🎁 Click for a Special Surprise
+        </button>
+
+
+        <div id="surprise">
+
+            🌟 You are a wonderful teacher! 🌟
+
+            <br><br>
+
+            Thank you for making a difference
+            in our lives.
+
+            <br><br>
+
+            🌸 Happy Teacher's Day! 🌸
+
+        </div>
+
+
+        <!-- Appreciation Boxes -->
+
+        <div class="appreciation">
+
+            <div class="box">
+                <h3>💡 Inspiration</h3>
+                <p>
+                    You inspire us to learn,
+                    grow, and believe in ourselves.
+                </p>
+            </div>
+
+
+            <div class="box">
+                <h3>❤️ Kindness</h3>
+                <p>
+                    Your kindness makes
+                    your classroom special.
+                </p>
+            </div>
+
+
+            <div class="box">
+                <h3>🌟 Guidance</h3>
+                <p>
+                    Your guidance helps us
+                    move toward our dreams.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Final Message -->
+
+    <section class="card">
+
+        <div class="flowers">
+            🌸 🌸 🌸
+        </div>
+
+        <h2>Thank You, Teacher! ❤️</h2>
+
+        <p class="message">
+
+            Some people teach lessons.
+
+            <br>
+
+            Great teachers leave a lasting impact.
+
+            <br><br>
+
+            Thank you for being one of those
+            special teachers.
+
+        </p>
+
+        <div class="flowers">
+            🌷 🌹 🌷
+        </div>
+
+    </section>
+
+
+    <footer>
+
+        Made with ❤️ especially for my teacher
+
+        <br><br>
+
+        🌸 Happy Teacher's Day 🌸
+
+    </footer>
+
+
+    <script>
+
+        function showSurprise() {
+
+            document.getElementById("surprise").style.display = "block";
+
+        }
+
+    </script>
+
+
+</body>
+</html>
