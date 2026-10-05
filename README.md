@@ -1,300 +1,532 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Happy Teacher's Day</title>
+    <title>For Miss Sehrish | Happy Teacher's Day</title>
 
     <style>
 
+        /* =========================
+           GENERAL
+        ========================= */
+
         * {
+            margin: 0;
+            padding: 0;
             box-sizing: border-box;
         }
 
+        html {
+            scroll-behavior: smooth;
+        }
+
         body {
-            margin: 0;
             font-family: "Segoe UI", Arial, sans-serif;
-            background: linear-gradient(135deg, #ffe6f0, #e8f4ff);
-            color: #333;
-            text-align: center;
+            background: #f6f1fb;
+            color: #40354d;
+            line-height: 1.7;
             overflow-x: hidden;
         }
 
-        /* Falling hearts */
 
-        .heart {
+        /* =========================
+           NAVIGATION
+        ========================= */
+
+        nav {
             position: fixed;
-            top: -20px;
-            font-size: 25px;
-            animation: fall linear infinite;
-            z-index: 1;
+            top: 0;
+            width: 100%;
+            padding: 18px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(12px);
+
+            box-shadow: 0 2px 20px rgba(80, 50, 100, 0.08);
+
+            z-index: 1000;
         }
 
-        .heart:nth-child(1) {
-            left: 10%;
-            animation-duration: 7s;
+        .logo {
+            font-size: 21px;
+            font-weight: 600;
+            color: #76549c;
         }
 
-        .heart:nth-child(2) {
-            left: 25%;
-            animation-duration: 9s;
+        nav a {
+            text-decoration: none;
+            color: #59456d;
+            margin-left: 25px;
+            font-size: 15px;
+            transition: 0.3s;
         }
 
-        .heart:nth-child(3) {
-            left: 45%;
-            animation-duration: 6s;
+        nav a:hover {
+            color: #8b68b5;
         }
 
-        .heart:nth-child(4) {
-            left: 65%;
-            animation-duration: 8s;
-        }
 
-        .heart:nth-child(5) {
-            left: 85%;
-            animation-duration: 10s;
-        }
+        /* =========================
+           HERO
+        ========================= */
 
-        @keyframes fall {
-            0% {
-                transform: translateY(-20px) rotate(0deg);
-                opacity: 1;
-            }
+        .hero {
+            min-height: 100vh;
 
-            100% {
-                transform: translateY(100vh) rotate(360deg);
-                opacity: 0;
-            }
-        }
-
-        /* Header */
-
-        header {
-            min-height: 90vh;
             display: flex;
             flex-direction: column;
             justify-content: center;
             align-items: center;
-            padding: 40px 20px;
+
+            text-align: center;
+
+            padding: 120px 20px 70px;
+
+            background:
+                radial-gradient(circle at top left,
+                #eadcf7,
+                transparent 40%),
+
+                radial-gradient(circle at bottom right,
+                #e1d2f2,
+                transparent 40%),
+
+                #f8f4fc;
+
             position: relative;
         }
 
-        header h1 {
-            font-size: 55px;
-            color: #d63384;
-            margin: 10px;
-            animation: glow 2s infinite alternate;
+        .small-title {
+            letter-spacing: 4px;
+            text-transform: uppercase;
+            color: #8766aa;
+            font-size: 14px;
+            margin-bottom: 20px;
         }
 
-        header h2 {
-            font-size: 32px;
-            color: #555;
+        .hero h1 {
+            font-family: Georgia, serif;
+            font-size: clamp(48px, 8vw, 85px);
+            font-weight: 500;
+            color: #4d3a5f;
+            margin-bottom: 10px;
         }
 
-        header p {
-            font-size: 20px;
+        .hero h2 {
+            font-size: 28px;
+            font-weight: 400;
+            color: #8361a5;
+            margin-bottom: 25px;
+        }
+
+        .hero p {
             max-width: 650px;
-            line-height: 1.7;
+            font-size: 18px;
+            color: #665a70;
         }
 
-        @keyframes glow {
-            from {
-                text-shadow: 0 0 5px #ffb6d5;
-            }
-
-            to {
-                text-shadow: 0 0 25px #ff69a5;
-            }
+        .hero-line {
+            width: 70px;
+            height: 2px;
+            background: #9a78bd;
+            margin: 30px auto;
         }
 
-        /* Flowers */
 
-        .flowers {
-            font-size: 45px;
-            margin: 20px;
-            animation: flowerMove 3s ease-in-out infinite;
+        /* =========================
+           FLOWERS
+        ========================= */
+
+        .flower {
+            position: absolute;
+            font-size: 25px;
+            opacity: 0.45;
+            animation: float 6s ease-in-out infinite;
         }
 
-        @keyframes flowerMove {
+        .flower.one {
+            left: 10%;
+            top: 25%;
+        }
+
+        .flower.two {
+            right: 12%;
+            top: 30%;
+            animation-delay: 1s;
+        }
+
+        .flower.three {
+            left: 17%;
+            bottom: 18%;
+            animation-delay: 2s;
+        }
+
+        .flower.four {
+            right: 18%;
+            bottom: 15%;
+            animation-delay: 3s;
+        }
+
+        @keyframes float {
+
             0%, 100% {
-                transform: translateY(0);
+                transform: translateY(0) rotate(0deg);
             }
 
             50% {
-                transform: translateY(-15px);
+                transform: translateY(-18px) rotate(8deg);
             }
         }
 
-        /* Main card */
 
-        .card {
-            background: rgba(255, 255, 255, 0.9);
-            width: 90%;
-            max-width: 850px;
-            margin: 40px auto;
-            padding: 40px;
-            border-radius: 30px;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.15);
-            position: relative;
-            z-index: 2;
+        /* =========================
+           SECTIONS
+        ========================= */
+
+        section {
+            padding: 100px 8%;
         }
 
-        .card h2 {
-            color: #d63384;
-            font-size: 35px;
+        .section-title {
+            text-align: center;
+            margin-bottom: 55px;
         }
 
-        /* Teacher photo */
+        .section-title span {
+            color: #9673b9;
+            font-size: 14px;
+            letter-spacing: 3px;
+            text-transform: uppercase;
+        }
+
+        .section-title h2 {
+            font-family: Georgia, serif;
+            font-size: 42px;
+            font-weight: 500;
+            color: #4e3b60;
+            margin-top: 10px;
+        }
+
+
+        /* =========================
+           TEACHER PROFILE
+        ========================= */
+
+        .teacher-section {
+            background: white;
+        }
+
+        .teacher-container {
+            max-width: 1000px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: 1fr 1.3fr;
+
+            gap: 70px;
+            align-items: center;
+        }
+
+        .photo-container {
+            text-align: center;
+        }
 
         .teacher-photo {
-            width: 220px;
-            height: 220px;
+            width: 280px;
+            height: 280px;
+
             object-fit: cover;
+
             border-radius: 50%;
-            border: 8px solid white;
-            box-shadow: 0 0 25px rgba(214, 51, 132, 0.4);
-            animation: photoFloat 3s ease-in-out infinite;
+
+            border: 8px solid #eee4f7;
+
+            box-shadow:
+                0 20px 50px rgba(99, 70, 120, 0.18);
+
+            transition: 0.5s;
         }
 
-        @keyframes photoFloat {
-            0%, 100% {
-                transform: translateY(0);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
+        .teacher-photo:hover {
+            transform: scale(1.04);
         }
 
         .teacher-name {
-            font-size: 35px;
-            color: #4a69bd;
-            margin-top: 20px;
+            margin-top: 25px;
+            font-family: Georgia, serif;
+            font-size: 32px;
+            color: #6e4e8e;
         }
 
-        /* Message */
-
-        .message {
-            font-size: 19px;
-            line-height: 1.9;
-            max-width: 700px;
-            margin: 20px auto;
+        .teacher-role {
+            color: #9a8ca4;
+            margin-top: 5px;
         }
 
-        .highlight {
-            color: #d63384;
-            font-weight: bold;
+
+        /* =========================
+           MESSAGE
+        ========================= */
+
+        .message h3 {
+            font-family: Georgia, serif;
+            font-size: 32px;
+            color: #584166;
+            margin-bottom: 20px;
         }
 
-        /* Button */
+        .message p {
+            margin-bottom: 18px;
+            color: #665b6e;
+            font-size: 17px;
+        }
 
-        button {
-            background: linear-gradient(45deg, #d63384, #ff6b9d);
-            color: white;
-            border: none;
-            padding: 16px 30px;
-            border-radius: 30px;
+        .signature {
+            margin-top: 30px;
+            font-family: Georgia, serif;
+            font-style: italic;
+            color: #8765a6;
+            font-size: 20px;
+        }
+
+
+        /* =========================
+           QUALITIES
+        ========================= */
+
+        .qualities {
+            background: #f0e8f8;
+        }
+
+        .quality-grid {
+            max-width: 1050px;
+            margin: auto;
+
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+
+            gap: 25px;
+        }
+
+        .quality {
+            background: rgba(255, 255, 255, 0.8);
+            padding: 35px 25px;
+
+            text-align: center;
+
+            border-radius: 18px;
+
+            border: 1px solid #e3d5ee;
+
+            transition: 0.4s;
+        }
+
+        .quality:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 15px 30px rgba(90, 60, 110, 0.12);
+        }
+
+        .quality-icon {
+            font-size: 32px;
+            margin-bottom: 15px;
+        }
+
+        .quality h3 {
+            color: #65487c;
+            margin-bottom: 10px;
+        }
+
+        .quality p {
+            color: #756a7b;
+            font-size: 15px;
+        }
+
+
+        /* =========================
+           MEMORIES
+        ========================= */
+
+        .memories {
+            background: white;
+        }
+
+        .memory-box {
+            max-width: 850px;
+            margin: auto;
+
+            background: #f8f3fb;
+
+            padding: 50px;
+
+            border-left: 4px solid #9b78bc;
+
+            border-radius: 12px;
+        }
+
+        .memory-box p {
+            font-family: Georgia, serif;
+            font-size: 21px;
+            color: #5d4a69;
+            text-align: center;
+        }
+
+
+        /* =========================
+           APPRECIATION
+        ========================= */
+
+        .appreciation {
+            background:
+                linear-gradient(
+                    135deg,
+                    #e8dbf2,
+                    #f6eefb
+                );
+
+            text-align: center;
+        }
+
+        .appreciation-content {
+            max-width: 750px;
+            margin: auto;
+        }
+
+        .appreciation h2 {
+            font-family: Georgia, serif;
+            font-size: 45px;
+            font-weight: 500;
+            color: #4e3a5d;
+            margin-bottom: 25px;
+        }
+
+        .appreciation p {
             font-size: 18px;
+            color: #65586d;
+        }
+
+
+        /* =========================
+           SURPRISE BUTTON
+        ========================= */
+
+        .surprise-button {
+            margin-top: 35px;
+
+            padding: 14px 30px;
+
+            border: 1px solid #8866a9;
+
+            background: transparent;
+
+            color: #70528e;
+
+            border-radius: 30px;
+
+            font-size: 16px;
+
             cursor: pointer;
-            margin-top: 20px;
-            box-shadow: 0 8px 20px rgba(214, 51, 132, 0.3);
+
             transition: 0.3s;
         }
 
-        button:hover {
-            transform: scale(1.08);
-            box-shadow: 0 12px 25px rgba(214, 51, 132, 0.4);
+        .surprise-button:hover {
+            background: #79599b;
+            color: white;
+            transform: translateY(-3px);
         }
-
-        /* Surprise message */
 
         #surprise {
             display: none;
+
             margin-top: 30px;
-            padding: 25px;
-            background: #fff0f6;
-            border-radius: 20px;
-            color: #d63384;
-            font-size: 22px;
+
+            font-family: Georgia, serif;
+
+            font-size: 24px;
+
+            color: #6d4c8a;
+
             animation: appear 1s ease;
         }
 
         @keyframes appear {
+
             from {
                 opacity: 0;
-                transform: scale(0.5);
+                transform: translateY(15px);
             }
 
             to {
                 opacity: 1;
-                transform: scale(1);
+                transform: translateY(0);
             }
         }
 
-        /* Appreciation section */
 
-        .appreciation {
-            display: flex;
-            justify-content: center;
-            gap: 20px;
-            flex-wrap: wrap;
-            margin-top: 35px;
-        }
-
-        .box {
-            width: 200px;
-            padding: 25px;
-            background: #f8f0ff;
-            border-radius: 20px;
-            transition: 0.3s;
-        }
-
-        .box:hover {
-            transform: translateY(-10px);
-        }
-
-        .box h3 {
-            color: #6f42c1;
-        }
-
-        .box p {
-            line-height: 1.5;
-        }
-
-        /* Footer */
+        /* =========================
+           FOOTER
+        ========================= */
 
         footer {
-            margin-top: 60px;
-            background: #d63384;
-            color: white;
-            padding: 30px;
-            font-size: 17px;
+            padding: 40px 20px;
+
+            background: #44334f;
+
+            color: #ddd2e4;
+
+            text-align: center;
         }
 
-        /* Mobile */
+        footer strong {
+            color: white;
+        }
 
-        @media (max-width: 600px) {
 
-            header h1 {
-                font-size: 38px;
+        /* =========================
+           MOBILE
+        ========================= */
+
+        @media (max-width: 750px) {
+
+            nav {
+                padding: 15px 5%;
             }
 
-            header h2 {
-                font-size: 25px;
+            nav a {
+                margin-left: 10px;
+                font-size: 13px;
             }
 
-            .card {
-                padding: 25px 15px;
+            .teacher-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+            }
+
+            .quality-grid {
+                grid-template-columns: 1fr;
+            }
+
+            section {
+                padding: 75px 6%;
+            }
+
+            .memory-box {
+                padding: 30px 20px;
+            }
+
+            .memory-box p {
+                font-size: 18px;
             }
 
             .teacher-photo {
-                width: 180px;
-                height: 180px;
-            }
-
-            .teacher-name {
-                font-size: 28px;
+                width: 220px;
+                height: 220px;
             }
 
         }
@@ -306,144 +538,153 @@
 <body>
 
 
-    <!-- Falling Hearts -->
+    <!-- =========================
+         NAVIGATION
+    ========================= -->
 
-    <div class="heart">💖</div>
-    <div class="heart">💕</div>
-    <div class="heart">💗</div>
-    <div class="heart">💖</div>
-    <div class="heart">💕</div>
+    <nav>
 
-
-    <!-- Welcome Section -->
-
-    <header>
-
-        <div class="flowers">
-            🌸 🌷 🌹 🌼 🌺
+        <div class="logo">
+            For Miss Sehrish
         </div>
 
-        <h1>Happy Teacher's Day!</h1>
+        <div>
 
-        <h2>To My Wonderful Teacher</h2>
+            <a href="#home">Home</a>
+
+            <a href="#about">About</a>
+
+            <a href="#memories">Memories</a>
+
+            <a href="#thanks">Thank You</a>
+
+        </div>
+
+    </nav>
+
+
+
+    <!-- =========================
+         HERO
+    ========================= -->
+
+    <header class="hero" id="home">
+
+        <div class="flower one">🌸</div>
+        <div class="flower two">✿</div>
+        <div class="flower three">🌷</div>
+        <div class="flower four">❀</div>
+
+
+        <div class="small-title">
+            A Special Tribute
+        </div>
+
+        <h1>
+            Happy Teacher's Day
+        </h1>
+
+        <h2>
+            For Miss Sehrish
+        </h2>
+
+        <div class="hero-line"></div>
 
         <p>
-            Today is a special day to say thank you
-            to someone who teaches, inspires,
-            encourages, and believes in us.
+            Some teachers teach from books.
+            Some teach through experience.
+            And some become a beautiful part of
+            the memories we carry with us.
         </p>
-
-        <div class="flowers">
-            🌷 🌸 🌼 🌹 🌺
-        </div>
 
     </header>
 
 
-    <!-- Teacher Section -->
 
-    <section class="card">
+    <!-- =========================
+         TEACHER ABOUT
+    ========================= -->
 
-       <img src="teacher.jpg" alt="My Teacher" class="teacher-photo">
+    <section class="teacher-section" id="about">
 
-<style>
-.teacher-photo {
-    width: 220px;
-    height: 220px;
-    object-fit: cover;
-    border-radius: 50%;
-}
-</style>
+        <div class="section-title">
 
-        <h2>🌸 My Amazing Teacher 🌸</h2>
+            <span>Someone Special</span>
 
-        <!-- CHANGE YOUR TEACHER'S NAME HERE -->
-
-        <div class="teacher-name">
-            Miss Sehrish
-        </div>
-
-        <p class="message">
-
-            Dear <span class="highlight">Miss Sehrish</span>,
-
-            thank you for being more than just a teacher.
-
-            Your kindness, patience, and guidance
-            make learning something special.
-
-            Every lesson you teach gives us
-            something valuable to carry into the future.
-
-        </p>
-
-
-        <p class="message">
-
-            A great teacher doesn't just teach lessons.
-            A great teacher inspires students
-            to believe in themselves.
-
-            <br><br>
-
-            <span class="highlight">
-                Thank you for inspiring me every day! ❤️
-            </span>
-
-        </p>
-
-
-        <!-- Surprise Button -->
-
-        <button onclick="showSurprise()">
-            🎁 Click for a Special Surprise
-        </button>
-
-
-        <div id="surprise">
-
-            🌟 You are a wonderful teacher! 🌟
-
-            <br><br>
-
-            Thank you for making a difference
-            in our lives.
-
-            <br><br>
-
-            🌸 Happy Teacher's Day! 🌸
+            <h2>
+                More Than A Teacher
+            </h2>
 
         </div>
 
 
-        <!-- Appreciation Boxes -->
+        <div class="teacher-container">
 
-        <div class="appreciation">
 
-            <div class="box">
-                <h3>💡 Inspiration</h3>
-                <p>
-                    You inspire us to learn,
-                    grow, and believe in ourselves.
-                </p>
+            <div class="photo-container">
+
+                <img
+                    src="teacher.jpg"
+                    alt="Miss Sehrish"
+                    class="teacher-photo"
+                >
+
+                <div class="teacher-name">
+                    Miss Sehrish
+                </div>
+
+                <div class="teacher-role">
+                    A Teacher, A Guide & A Friend
+                </div>
+
             </div>
 
 
-            <div class="box">
-                <h3>❤️ Kindness</h3>
-                <p>
-                    Your kindness makes
-                    your classroom special.
-                </p>
-            </div>
+
+            <div class="message">
+
+                <h3>
+                    Dear Miss Sehrish,
+                </h3>
 
 
-            <div class="box">
-                <h3>🌟 Guidance</h3>
                 <p>
-                    Your guidance helps us
-                    move toward our dreams.
+                    It is difficult to put into words what makes
+                    a teacher truly special. But when I think of
+                    you, I think of someone who has made learning
+                    feel easier, happier, and much more meaningful.
                 </p>
+
+
+                <p>
+                    You are not just my teacher. You are also
+                    someone I can look up to, talk to, laugh with,
+                    and remember with a smile.
+                </p>
+
+
+                <p>
+                    You have a wonderful way of making even an
+                    ordinary moment feel special. Your presence
+                    brings joy into the classroom, and your
+                    kindness makes people feel comfortable being
+                    themselves.
+                </p>
+
+
+                <p>
+                    Thank you for every lesson, every encouraging
+                    word, every laugh, every little moment of
+                    happiness, and every time you made us believe
+                    that we could do better.
+                </p>
+
+
+                <div class="signature">
+                    With heartfelt gratitude,<br>
+                    Your student
+                </div>
+
             </div>
 
         </div>
@@ -451,48 +692,296 @@
     </section>
 
 
-    <!-- Final Message -->
 
-    <section class="card">
+    <!-- =========================
+         QUALITIES
+    ========================= -->
 
-        <div class="flowers">
-            🌸 🌸 🌸
+    <section class="qualities">
+
+        <div class="section-title">
+
+            <span>Why You Are Special</span>
+
+            <h2>
+                The Teacher We Appreciate
+            </h2>
+
         </div>
 
-        <h2>Thank You, Teacher! ❤️</h2>
 
-        <p class="message">
+        <div class="quality-grid">
 
-            Some people teach lessons.
 
-            <br>
+            <div class="quality">
 
-            Great teachers leave a lasting impact.
+                <div class="quality-icon">
+                    ✨
+                </div>
 
-            <br><br>
+                <h3>
+                    Inspirational
+                </h3>
 
-            Thank you for being one of those
-            special teachers.
+                <p>
+                    You encourage us to believe in ourselves
+                    and remind us that learning is a journey,
+                    not just a destination.
+                </p>
 
-        </p>
+            </div>
 
-        <div class="flowers">
-            🌷 🌹 🌷
+
+
+            <div class="quality">
+
+                <div class="quality-icon">
+                    🤍
+                </div>
+
+                <h3>
+                    Kind & Understanding
+                </h3>
+
+                <p>
+                    Your patience and understanding make it
+                    easier to learn, ask questions, and
+                    grow with confidence.
+                </p>
+
+            </div>
+
+
+
+            <div class="quality">
+
+                <div class="quality-icon">
+                    🌸
+                </div>
+
+                <h3>
+                    Full of Joy
+                </h3>
+
+                <p>
+                    You have a special way of turning ordinary
+                    classroom moments into memories filled
+                    with laughter and happiness.
+                </p>
+
+            </div>
+
+
+
+            <div class="quality">
+
+                <div class="quality-icon">
+                    🌱
+                </div>
+
+                <h3>
+                    A Great Guide
+                </h3>
+
+                <p>
+                    Your advice and encouragement help us
+                    become more confident and thoughtful
+                    people.
+                </p>
+
+            </div>
+
+
+
+            <div class="quality">
+
+                <div class="quality-icon">
+                    💫
+                </div>
+
+                <h3>
+                    Truly Supportive
+                </h3>
+
+                <p>
+                    You make your students feel heard,
+                    valued, and capable of achieving
+                    more than they imagine.
+                </p>
+
+            </div>
+
+
+
+            <div class="quality">
+
+                <div class="quality-icon">
+                    🌷
+                </div>
+
+                <h3>
+                    Unforgettable
+                </h3>
+
+                <p>
+                    The lessons you teach are important,
+                    but the memories you create are
+                    something we will treasure.
+                </p>
+
+            </div>
+
         </div>
 
     </section>
 
+
+
+    <!-- =========================
+         MEMORIES
+    ========================= -->
+
+    <section class="memories" id="memories">
+
+        <div class="section-title">
+
+            <span>The Little Things</span>
+
+            <h2>
+                The Moments That Matter
+            </h2>
+
+        </div>
+
+
+        <div class="memory-box">
+
+            <p>
+
+                "What makes a teacher unforgettable isn't
+                only the lessons written on a board.
+
+                <br><br>
+
+                It's the laughter between lessons,
+                the encouraging words when things feel
+                difficult, the little conversations,
+                the unexpected moments of joy,
+
+                <br><br>
+
+                and the feeling that someone genuinely
+                wants you to succeed.
+
+                <br><br>
+
+                Thank you, Miss Sehrish, for giving us
+                so many moments worth remembering."
+
+            </p>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         THANK YOU
+    ========================= -->
+
+    <section class="appreciation" id="thanks">
+
+        <div class="appreciation-content">
+
+            <h2>
+                Thank You, Miss Sehrish
+            </h2>
+
+            <p>
+
+                You have been a teacher who teaches,
+                a friend who brings joy,
+                a guide who gives confidence,
+                and a person who makes ordinary days
+                feel a little brighter.
+
+                <br><br>
+
+                I hope you always know how appreciated
+                you are.
+
+                <br><br>
+
+                Your students may eventually forget
+                some lessons from the classroom,
+
+                but they will remember how you made
+                them feel.
+
+                <br><br>
+
+                And that is something truly special.
+
+            </p>
+
+
+            <button
+                class="surprise-button"
+                onclick="showSurprise()"
+            >
+                A Little Message For You
+            </button>
+
+
+            <div id="surprise">
+
+                ✨ You are one of those teachers
+                who will always be remembered. ✨
+
+                <br><br>
+
+                Thank you for making every moment
+                a little more joyful.
+
+                <br><br>
+
+                Happy Teacher's Day, Miss Sehrish. 💜
+
+            </div>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         FOOTER
+    ========================= -->
 
     <footer>
 
-        Made with ❤️ especially for my teacher
+        <strong>
+            Made especially for Miss Sehrish
+        </strong>
 
         <br><br>
 
-        🌸 Happy Teacher's Day 🌸
+        With gratitude, appreciation,
+        and lots of beautiful memories.
+
+        <br><br>
+
+        © Teacher's Day Tribute
 
     </footer>
 
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================= -->
 
     <script>
 
@@ -506,4 +995,5 @@
 
 
 </body>
+
 </html>
